@@ -1,0 +1,28 @@
+# Dépendances
+node_modules/
+npm-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# Build
+dist/
+build/
+
+# Environnement
+.env
+.env.local
+.env.*.local
+
+# Éditeurs/IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
