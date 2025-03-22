@@ -1,28 +1,42 @@
 # Dépendances
 node_modules/
 npm-debug.log
+yarn-debug.log
 yarn-error.log
-.pnpm-debug.log
 
-# Build
+# Production
 dist/
 build/
 
-# Environnement
+# Variables d'environnement
 .env
 .env.local
 .env.*.local
 
-# Éditeurs/IDE
+# Mais conserver les exemples
+!.env.example
+!.env.development
+
+# Logs
+logs/
+*.log
+
+# Système d'exploitation
+.DS_Store
+Thumbs.db
+
+# Éditeurs
 .idea/
 .vscode/
 *.sublime-project
 *.sublime-workspace
 
-# Système
-.DS_Store
-Thumbs.db
+# Tests
+coverage/
 
-# Logs
-logs/
-*.log
+# Temporaires
+tmp/
+temp/
+
+# Docker (optionnel)
+docker-compose.override.yml

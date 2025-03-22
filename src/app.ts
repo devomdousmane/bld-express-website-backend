@@ -6,6 +6,8 @@ import { errorHandler, notFoundHandler,loggerMiddleware, rateLimiter, validateAp
 
 // Importer les routes
 import apiRoutes from './routes';
+import morgan from 'morgan';
+import { config } from './config';
 
 // Charger les variables d'environnement
 dotenv.config();
@@ -19,17 +21,26 @@ app.use(express.json()); // Parser les requêtes JSON
 app.use(express.urlencoded({ extended: true })); // Parser les données des formulaires
 app.use(loggerMiddleware); // Middleware de journalisation
 app.use(rateLimiter); // Limiter le taux de requêtes
+app.use(morgan(config.server.environment === 'production' ? 'combined' : 'dev'));
 
 // Préfixe API défini dans le fichier .env
 const API_PREFIX = process.env.API_PREFIX || '/api/v1';
 
-// Route de base pour vérifier que le serveur fonctionne
-app.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'Bienvenue sur votre API' });
+// Route racine
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'BLD Express API',
+    version: '1.0.0',
+    environment: config.server.environment
+  });
 });
+
+
 
 // Routes API
 app.use(`${API_PREFIX}`, apiRoutes);
+
 app.use(validateApiParams);
 // Middleware pour les routes non trouvées - doit être après toutes les routes
 app.use(notFoundHandler);
