@@ -4,6 +4,7 @@
   "description": "Backend API pour l'application frontend",
   "main": "dist/server.js",
   "scripts": {
+    "prebuild": "npm install --save-dev @types/express @types/cors @types/morgan @types/nodemailer",
     "build": "tsc",
     "start": "node dist/server.js",
     "dev": "nodemon",
