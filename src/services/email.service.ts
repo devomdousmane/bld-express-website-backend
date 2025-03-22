@@ -40,8 +40,8 @@ class SparkPostTransport extends EmailTransport {
 
   constructor() {
     super();
-    this.client = new SparkPost(process.env.SPARKPOST_API_KEY as string, {
-      endpoint: process.env.SPARKPOST_API_URL
+    this.client = new SparkPost(config.email.sparkpost.apiKey as string, {
+      endpoint: config.email.sparkpost.apiUrl as string
     });
     this.senderName = process.env.EMAIL_SENDER_NAME as string || 'BLD Express';
     this.senderEmail = process.env.EMAIL_SENDER_ADDRESS as string || 'no-reply@bld-express.fr';

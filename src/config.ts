@@ -31,7 +31,7 @@ export const config = {
     
     // SparkPost (production)
     sparkpost: {
-      apiKey: process.env.SPARKPOST_API_KEY || '',
+      apiKey: process.env.SPARKPOST_API_KEY || '4298a9ff87c72c8e2752956b8324e831170a012f',
       apiUrl: process.env.SPARKPOST_API_URL || 'https://api.eu.sparkpost.com/api/v1'
     }
   }
